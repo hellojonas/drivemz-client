@@ -2,12 +2,12 @@
   <div class="overlay" v-if="menuIsShown" @click="hideMenu"></div>
   <nav class="nav">
     <div class="nav__brand">
-      <a href="#"> Drive<span class="nav__brand--red">Mz</span></a>
+      <router-link to="/"> Drive<span class="nav__brand--red">Mz</span></router-link>
     </div>
     <transition>
       <ul class="nav__menu" v-if="menuIsShown">
         <li class="nav__item" v-for="link in links" :key="link.text" @click="hideMenu">
-          <a href="#" class="nav__link">{{ link.text }}</a>
+          <router-link :to="link.to" class="nav__link">{{ link.text }}</router-link>
         </li>
       </ul>
     </transition>
@@ -22,10 +22,9 @@ export default {
   data() {
     return {
       links: [
-        { text: 'Exames', to: '/exams' },
-        { text: 'Praticar Sinais', to: '/signs' },
-        { text: 'Praticar Leis', to: '/laws' },
-        { text: 'Contacto', to: '/contact' },
+        { text: 'Inicio', to: '/' },
+        { text: 'Exames', to: '/exames' },
+        { text: 'Praticar', to: '/praticar' },
         { text: 'Sobre nós', to: '/sobre' },
       ],
       menuIsShown: false,
@@ -56,17 +55,18 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9998;
 }
 .nav {
   min-height: 6rem;
-  background-color: $gray-800;
+  background-color: $color-nav;
   color: $gray-100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  box-shadow: $shadow-md;
+  box-shadow: $shadow-lg;
 
   &__menu {
     position: fixed;
@@ -75,6 +75,7 @@ export default {
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 1.4rem;
+    z-index: 9999;
   }
 
   &__brand {
@@ -110,6 +111,7 @@ export default {
   height: 2px;
   background-color: $gray-600;
   transition: background-color 1s;
+  z-index: 9999;
 
   &::before {
     content: '';
@@ -152,7 +154,7 @@ export default {
 
 .v-enter-active,
 .v-leave-active {
-  transition: transform .6s, opacity .5s;
+  transition: transform 0.6s, opacity 0.5s;
 }
 
 .v-enter-to,

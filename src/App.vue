@@ -1,5 +1,6 @@
 <template>
   <nav-bar></nav-bar>
+  <router-view></router-view>
 </template>
 
 <script>
@@ -27,9 +28,10 @@ html {
 }
 
 body {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: 'Poppins', arial, sans-serif;
-  background-color: $gray-700;
+  color: $gray-400;
+  background-color: $gray-800;
 }
 
 a {
