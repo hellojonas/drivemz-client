@@ -14,18 +14,8 @@
       <base-paragraph mb="md">Não se sente preparado? Pratique antes.</base-paragraph>
 
       <div class="button-group">
-        <base-button
-          type="secondary"
-          text="Iniciar exame"
-          rounded
-          @click="goto('/exam-session')"
-        ></base-button>
-        <base-button
-          type="tertiary"
-          text="Praticar"
-          rounded
-          @click="goto('/praticar')"
-        ></base-button>
+        <base-button type="secondary" text="Iniciar exame" rounded @click="startExam"></base-button>
+        <base-button type="tertiary" text="Praticar" rounded @click="gotoPratice"></base-button>
       </div>
     </base-card>
   </section>
@@ -34,8 +24,11 @@
 <script>
 export default {
   methods: {
-    goto(link) {
-      this.$router.push(link);
+    gotoPratice() {
+      this.$router.push('/praticar');
+    },
+    startExam() {
+      this.$router.push('/exam-session');
     },
   },
 };

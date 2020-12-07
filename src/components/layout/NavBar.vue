@@ -56,8 +56,9 @@ export default {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.95);
-  z-index: 9998;
+  z-index: 9900;
 }
+
 .nav {
   min-height: 6rem;
   background-color: $color-nav;
@@ -75,7 +76,7 @@ export default {
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 1.4rem;
-    z-index: 9999;
+    z-index: 9910;
   }
 
   &__brand {
@@ -111,7 +112,7 @@ export default {
   height: 2px;
   background-color: $gray-600;
   transition: background-color 1s;
-  z-index: 9999;
+  z-index: 9910;
 
   &::before {
     content: '';
