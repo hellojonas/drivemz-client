@@ -6,6 +6,9 @@ import PraticeLaws from '@/views/PraticeLaws.vue';
 import PraticeSigns from '@/views/PraticeSigns.vue';
 import AppPratice from '@/views/AppPratice.vue';
 import ExamSession from '@/views/ExamSession.vue';
+import Admin from '@/views/admin/Admin.vue';
+import Questions from '@/views/admin/Questions.vue';
+import Exams from '@/views/admin/Exams.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,6 +25,8 @@ const router = createRouter({
       ],
     },
     { path: '/sobre', component: AppAbout },
+    { path: '/admin', component: Admin, children: [{ path: 'questions', component: Questions }] },
+    { path: '/admin', component: Admin, children: [{ path: 'exams', component: Exams }] },
   ],
 });
 
