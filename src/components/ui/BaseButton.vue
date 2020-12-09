@@ -1,5 +1,7 @@
 <template>
-  <button class="button" :class="[roundedClass, typeClass]">{{ text }}</button>
+  <button class="button" :class="[roundedClass, typeClass]">
+    <slot>{{ text }}</slot>
+  </button>
 </template>
 
 <script>
