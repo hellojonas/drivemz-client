@@ -1,9 +1,11 @@
 import { createStore } from 'vuex';
 import examSession from './modules/examSession';
+import questions from './modules/questions';
 
 export default createStore({
   modules: {
     examSession,
+    questions,
   },
   state() {
     return {};
@@ -11,5 +13,3 @@ export default createStore({
   mutations: {},
   actions: {},
 });
-
-// https://drivemz-d4033.firebaseio.com/ -- firebase endpoint

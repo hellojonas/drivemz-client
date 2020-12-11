@@ -213,7 +213,7 @@ export default {
       this.image = img;
     },
     initData() {
-      this.questionText = this.question.text;
+      this.questionText = this.question.questionText;
       this.numberOfOptions = this.question.options.length;
       this.options = this.question.options;
       this.image = this.question.image;

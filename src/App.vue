@@ -32,6 +32,7 @@ body {
   font-family: 'Poppins', arial, sans-serif;
   color: $gray-400;
   background-color: $gray-800;
+  padding-bottom: 5rem;
 }
 
 a {
