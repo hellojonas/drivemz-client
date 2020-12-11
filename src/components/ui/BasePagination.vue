@@ -70,6 +70,7 @@ export default {
     align-items: center;
     border-radius: 3px;
     padding: 0.4rem;
+    cursor: pointer;
 
     &:not(:last-child) {
       margin-right: 1rem;

@@ -25,8 +25,15 @@ const router = createRouter({
       ],
     },
     { path: '/sobre', component: AppAbout },
-    { path: '/admin', component: Admin, children: [{ path: 'questions', component: Questions }] },
-    { path: '/admin', component: Admin, children: [{ path: 'exams', component: Exams }] },
+    {
+      path: '/admin',
+      component: Admin,
+      children: [
+        { path: 'questions', component: Questions },
+        // { path: 'questions/:id', component: Questions },
+        { path: 'exams', component: Exams },
+      ],
+    },
   ],
 });
 

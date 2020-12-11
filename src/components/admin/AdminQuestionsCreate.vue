@@ -31,7 +31,7 @@ export default {
   methods: {
     async addQuestion(data) {
       try {
-        await axios.post('http://localhost:3090/api/v1/question', data);
+        await axios.post('http://localhost:3090/api/v1/questions', data);
         this.msgSucess = 'Question added successfully';
         this.timer = setTimeout(() => {
           this.switchToTab('admin-questions-view');

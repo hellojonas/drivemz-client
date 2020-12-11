@@ -21,7 +21,9 @@ export default {
     id: String,
   },
   data() {
-    return {};
+    return {
+      error: null,
+    };
   },
   computed: {
     captionMoreLess() {
@@ -29,7 +31,14 @@ export default {
     },
   },
   methods: {
-    deleteQuestion() {},
+    async deleteQuestion() {
+      try {
+        await this.$store.dispatch('questions/deleteQuestion', { id: this.id });
+        console.log('hit');
+      } catch (err) {
+        this.error = err.message;
+      }
+    },
   },
 };
 </script>

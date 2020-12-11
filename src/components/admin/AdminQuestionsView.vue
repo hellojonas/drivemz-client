@@ -54,6 +54,7 @@ export default {
     },
     gotoPage(page) {
       this.activePage = page;
+      window.scrollTo({ top: 700, behavior: 'smooth' });
     },
     async changePage() {
       await this.$store.dispatch('questions/changePage', { page: this.activePage, limit: 15 });

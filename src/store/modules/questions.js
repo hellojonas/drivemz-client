@@ -14,6 +14,10 @@ export default {
     setQuestions(state, questions) {
       state.questions = questions;
     },
+    removeQuestion(state, questionId) {
+      // eslint-disable-next-line no-underscore-dangle
+      state.questions = state.questions.filter((question) => questionId !== question._id);
+    },
     addQuestion(state, question) {
       state.question.push(question);
     },
@@ -61,6 +65,10 @@ export default {
       context.commit('setPage', page);
       context.commit('setLimit', limit || 15);
       await context.dispatch('fetchQuestions');
+    },
+    async deleteQuestion(context, payload) {
+      await axios.delete(`http://localhost:3090/api/v1/questions/${payload.id}`);
+      context.commit('removeQuestion', payload.id);
     },
   },
 };
