@@ -53,7 +53,7 @@ export default {
       const { page } = context.getters;
       const { limit } = context.getters;
       const questions = await axios.get(
-        `http://localhost:3090/api/v1/questions?page=${page}&limit=${limit}`,
+        `http://localhost:3090/api/v1/questions?sort=-_id&page=${page}&limit=${limit}`,
       );
 
       context.commit('setQuestions', questions.data.questions);
