@@ -1,5 +1,5 @@
 <template>
-  <div class="question">
+  <li class="question">
     <header class="question__header">
       <div class="question__text">
         {{ text }}
@@ -16,9 +16,9 @@
       </div>
     </header>
     <section class="question__options">
-      <exam-question-options :options="options"></exam-question-options>
+      <exam-question-options :questionId="id" :options="options"></exam-question-options>
     </section>
-  </div>
+  </li>
 </template>
 
 <script>
@@ -74,21 +74,7 @@ export default {
 }
 
 .question {
-  &__stats {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    color: $gray-500;
-    background: linear-gradient(10deg, $gray-800, $gray-900);
-    padding: 0.5rem 1rem;
-  }
-
-  &__header {
-    border-radius: 0 0 4px 4px;
-    overflow: hidden;
-    box-shadow: $shadow-md;
-    margin-bottom: 3rem;
-  }
+  min-height: 44rem;
 
   &__header {
     display: flex;

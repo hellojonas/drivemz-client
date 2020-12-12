@@ -4,8 +4,8 @@
       class="options__item"
       v-for="option in options"
       :key="option.id"
-      @click="setSelected($event, option.id)"
-      :class="[selectedClass(option.id)]"
+      @click="setSelected(option._id)"
+      :class="selectedClass(option._id)"
     >
       {{ option.text }}
     </li>
@@ -15,29 +15,22 @@
 <script>
 export default {
   props: {
+    questionId: { type: String, required: true },
     options: { type: Array, required: true },
   },
-  data() {
-    return {
-      selectedOption: '',
-    };
-  },
   computed: {
+    selectedOption() {
+      // eslint-disable-next-line no-underscore-dangle
+      return this.$store.getters['examSession/answers'][this.questionId];
+    },
     selectedClass() {
-      return (id) => (this.selectedOption === id ? 'options__item--active' : '');
+      const { selectedOption } = this;
+      return (id) => (selectedOption === id ? 'options__item--active' : '');
     },
   },
   methods: {
-    setSelected(event, id) {
-      this.selectedOption = id;
-
-      this.options.forEach((option) => {
-        if (id === option.id) {
-          event.target.classList.add('options__item--active');
-          return;
-        }
-        event.target.classList.remove('options__item--active');
-      });
+    setSelected(optionId) {
+      this.$store.commit('examSession/addAnswer', { questionId: this.questionId, optionId });
     },
   },
 };
